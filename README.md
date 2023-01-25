@@ -1,15 +1,16 @@
-## Backend
+# Backend
 
-API creada para la conexión a la base de datos SQL, desarrollada en pyhton.
+API created for the connection to the SQL database, developed in pyhton.
 
-Hay un archivo IotDB.sql para crear la base de datos.
-Un archivo IotPA.sql para los procedimientos almacenados.
-Y un archivo inputEjemplos.sql para llenar la base de datos.
+## Start
+1) IotDB.sql to create the data base.
+2) IotPA.sql for stored procedures.
+3) inputEjemplos.sql to fill data base.
 
-Para obtener informacion de la API se debe de realizar una peticion GET hacia cualquiera de las rutas disponibles con sus respectivos parametros:
+To get information from the API, a GET request must be made to any of the available routes with their respective parameters:
 
-#Administrador / Usuarios
-
+## API
+### Adminstrator / Users
 ###### /login?username=&contrasena=
 ###### /insert?name=&email=&username=&password=&date_register=&admin=
 ###### /delete?username= 
@@ -17,41 +18,36 @@ Para obtener informacion de la API se debe de realizar una peticion GET hacia cu
 ###### /search?username=
 ###### /showAllUser
 
-#Espacios
-
-Stage
+### Spaces
+####Stage
 ###### /insertStage?id_stage=&name=&user=&admin=
 ###### /deleteStage?id_stage= 
 ###### /searchStage?id_stage=
 ###### /modifyStage?id_stage=&name=
 ###### /showAllStage
-
-Floor
+####Floor
 ###### /insertFloor?id_floor=&name=&id_stage=
 ###### /deleteFloor?id_floor= 
 ###### /searchFloor?id_floor=
 ###### /modify?id_floor=&name=
 ###### /showAllFloor
-
-Room
+#### Room
 ###### /insertRoom?id_room=&name=&id_floor=&id_scenario=
 ###### /deleteRoom?id_room= 
 ###### /searchRoom?id_room=
 ###### /modify?id_room=&name=&id_scenario=
 ###### /showAllRoom
 
-#Dispositvos
+### Devices
 
 ###### /insertProduct?id_product=&name=&description=&os=&id_device=&status=&brand=&model=&x=&y=&id_room=
-
 ###### /insertSensor?id_sensor=&type=&firmware=&clasification=&id_device=&status=&brand=&model=&x=&y=&id_room=
-
 ###### /deleteDevice?id_device=
 ###### /searchDevice?id_device=
 ###### /type?type_device=
 ###### /modifyDevice?id_device=&brand=&model=&x=&y=
 ###### /showAllDevice
 
-Regresa un flask.Response() y un status code 200. Se puede convertir en un JSON con JSON.parse(); la estructura de la respuesta depende de los parametros que se den.
+It returns a flask.Response() and a status code 200. This can be converted to a JSON with JSON.parse(); the structure of the response depends on the parameters that are given.
 
-En la parte login se usa una llave para la encriptación de las contraseñas es "asdfghjkl", mientras que el método de encriptación es salt.
+In the login part, a password encryption key is "asdfghjkl", while the encryption method is salt.
